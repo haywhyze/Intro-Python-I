@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+now = datetime.now()
+if len(sys.argv) == 1:
+    print(calendar.month(now.year, now.month))
+elif len(sys.argv) <= 3 and (int(sys.argv[1]) >= 1 and int(sys.argv[1]) <= 12):
+    if len(sys.argv) == 2:
+        print(calendar.month(now.year, int(sys.argv[1])))
+    elif len(sys.argv) == 3 and (int(sys.argv[2]) >= 0 and int(sys.argv[1]) <= 4000):
+        print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+else:
+    print('\nusage: 14_cal.py [month] [year]')
+    print('  month: numbers between 1 and 12')
+    print('  year: numbers between 0 and 4000\n')
